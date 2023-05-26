@@ -3,7 +3,7 @@ long merge(vector<int>& arr, vector<int>& temp, int start, int mid, int end){
     int i=start, j=mid+1, k=start;
     long c = 0;
     while(i <= mid && j <= end){
-        if(arr[j] <= arr[j]){
+        if(arr[i] <= arr[j]){
             temp[k++] = arr[i++];
         }
         else{   // arr[i] > arr[j]   -> Inversion count case

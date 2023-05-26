@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+//1. pivot as a first index
 int partition(int *arr, int low, int high){
     int pivot = arr[low];
     int i = low+1;
@@ -46,7 +47,7 @@ int main(){
 }
 
 
-// // sort an array using quick sort algorithm taking pivot as end index.
+// // 2.pivot as end index.
 //     void quickSort(int a[], int start, int end)
 //     {
 //         if(start >= end) 
