@@ -17,7 +17,7 @@ public:
 class Solution {
 public:
     //Approach1: With Map
-    Node* helperUsingMap(Node* head, unordered_map<Node*,Node*>& mp){
+    Node* helperUsingMap(Node* &head, unordered_map<Node*,Node*>& mp){
         if(!head) return 0;
 
         Node* newHead = new Node(head->val);
@@ -27,6 +27,10 @@ public:
             newHead->random = mp[head->random];
         }
         return newHead;
+    }
+
+    Node* helperUsingMap(Node* head, unordered_map<Node*,Node*>&mp){
+
     }
 
     //Approach2: Without Map
@@ -49,8 +53,9 @@ public:
 
         //step2: Assign random links of A' with the help of A.
         it = head;
+        Node* clonedNode = NULL;
         while(it){
-            Node* clonedNode = it->next;
+            clonedNode = it->next;
             clonedNode->random = it->random ? it->random->next : nullptr;
             it = it->next->next;
         }
