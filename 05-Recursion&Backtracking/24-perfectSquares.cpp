@@ -3,10 +3,10 @@ public:
 
     int numSquareHelper(int n){
         if(n==0){
-            return 1;
+            return 0;
         }
         if(n < 0){
-            return 0;
+            return INT_MAX;
         }
 
         int ans = INT_MAX;
@@ -15,15 +15,13 @@ public:
         while(i <= end){
             int perfectSqr = i*i;
             int numOfPerfectSqr = 1 + numSquareHelper(n - perfectSqr);
-            if(numOfPerfectSqr < ans){
-                ans = numOfPerfectSqr;
-            }
+            ans = min(ans, numOfPerfectSqr);
             ++i;
         }
         return ans;
     }
 
     int numSquares(int n) {
-        return numSquareHelper(n)-1;
+        return numSquareHelper(n);
     }
 };
